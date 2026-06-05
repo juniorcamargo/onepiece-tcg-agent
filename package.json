@@ -2,19 +2,24 @@
   "name": "onepiece-tcg-agent",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "mastra dev",
+    "build": "tsc --noEmit",
+    "ingest": "tsx --env-file=.env src/main/ingest.ts",
+    "chat": "tsx --env-file=.env src/main/chat.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.81",
     "@mastra/core": "^1.41.0",
+    "@mastra/qdrant": "^1.0.2",
     "@mastra/rag": "^2.2.1",
-    "@mastra/vector-qdrant": "^0.1.5",
     "pdf-parse": "^2.4.5",
     "zod": "^4.4.3"
   },
@@ -24,6 +29,7 @@
     "@vitest/coverage-v8": "^4.1.8",
     "mastra": "^1.12.2",
     "ts-node": "^10.9.2",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8"
   }
